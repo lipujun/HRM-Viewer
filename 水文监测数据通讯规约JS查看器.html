@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="author" content="李普军，13811969446，lipujun@aliyun.com,44695727">
+<meta name="description" content="水文，水资源，通信，协议">
+<title>水文协议JS查看器</title>
+<style type="text/css">
+        BODY {
+            font: 14px Verdana, Arial;
+            color: #444;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll;
+        }
+        H1 {
+          margin:0;
+          font: 24px Helvetica, Verdana, Arial;
+          padding: 20px 0 10px 0;
+          background: #FBFBFB;
+          border-bottom: solid 1px #fff;
+        }
+        A {
+          color: #093;
+          text-decoration: none;
+        }
+        A:hover {
+          text-decoration: underline;
+        }
+        #usage {
+			width: 960px;
+            border-top: solid 1px #dfdfdf;
+            border-bottom: solid 1px #dfdfdf;
+            margin: 0 0 10px 0;
+            padding: 5px;
+            background: #f1f1f1;
+            line-height: 20px;
+            text-align: left;
+			overflow: auto;
+			margin-left: auto;
+			margin-right: auto;
+        }
+        TEXTAREA {
+            width: 99%;
+            height: 80px;
+        }
+        BUTTON {
+            margin: 20px;
+            padding: 4px 8px;
+        }
+        
+        PRE {
+            background: #f1f1f1;
+            padding: 4px 8px;
+            color:#000;
+            text-shadow: 0 1px 0 #fff;
+        }
+		.container{
+			width: 960px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.viewcontainer {
+			width: 960px;
+            margin: 0 0 10px 0;
+            background: #fff;
+            line-height: 20px;
+            text-align: left;
+			overflow: auto;
+			margin-left: auto;
+			margin-right: auto;
+        }
+        .viewer {
+            text-align:left;
+            position: relative;
+            background: #fff;
+            width: 960px;
+            overflow: auto;
+        }
+</style>
+<script type="text/javascript" charset="utf-8" src="sw.js"></script>
+<script type="text/javascript" charset="utf-8" src="jsonreport.js"></script>
+</head>
+<body>
+	<div id="container">
+		<h1>
+			《水文监测数据通讯规约》HEX报文查看器
+		</h1>
+		<div id="usage" >
+			<strong>使用说明:</strong>&nbsp;&nbsp;&nbsp;&nbsp;粘贴HEX报文到下面的文本框中，然后点击<b>"查看"</b>按钮.
+			<textarea id="hex" >7E7EFF0000000003FFFF32005E020024130503160000F1F1000000000348F0F01305031500F460000000000000000000000000F5C0000B000B000B000B000B000BFFFF000B000B000B000B000BF0F0130503160020190000001F190000002619000030391A0000123812126003B98B</textarea>
+		</div>
+		
+		<button onclick="SW.parser(document.getElementById('hex'));document.getElementById('viewer').innerHTML=_.jsonreport(JSON.stringify(SW.RESULT) );">查看</button>
+		
+		<div class="viewcontainer">
+			<div id="viewer" class="viewer"></div>
+		</div>
+	</div>
+<script>
+
+</script>	 
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7ce3b3f03ccd18200f491315a65d9010' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+
+    
